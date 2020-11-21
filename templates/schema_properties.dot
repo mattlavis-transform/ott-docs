@@ -1,0 +1,6 @@
+### Fields
+
+Name|Type|Required|Description
+---|---|---|---|
+{{~ data.schemaProperties :p}}{{=p.name.replace(/^_/, '\\_')}}|{{=p.type}}|{{=p.required}}|{{=p.description}}
+{{~}}

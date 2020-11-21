@@ -1,0 +1,106 @@
+---
+title: Trade Tariff API - GOV.UK
+---
+
+# GOV.UK Trade Tariff API
+
+The GOV.UK Trade Tariff API makes it easy to access Trade Tariff data
+from [https://www.gov.uk/trade-tariff](https://www.gov.uk/trade-tariff).
+The data includes commodity codes, duty and VAT rates.
+
+It is accessed via [HTTPS][] and returns data in a [JSON][]
+format. The [reference documentation](reference.html) provides a thorough
+overview of the endpoints and the response format.
+
+## What you can do with this API
+
+The data provided by this API is used on [GOV.UK Trade Tariff](https://www.gov.uk/trade-tariff).
+
+With the Trade Tariff API, you can access Commodity codes, which [classify 
+goods](https://www.gov.uk/guidance/finding-commodity-codes-for-imports-or-exports)
+for import and export. Commodity codes allow you to:
+
+- fill in declarations and other paperwork
+- check if there’s duty or VAT to pay
+- find out about duty reliefs and preferential rates
+- find out if import or export licenses are needed
+- Search by free-form text or `goods_nomenclature_item_id`
+- Scope some API calls by date, i.e. `/api/v2/goods_nomenclatures/*`
+- Provide resources for all headings and all commodities
+- Search for quota measures with criteria, including goods nomenclature, year, geographic area, etc.
+
+This API is useful for applications that incorporate content from [GOV.UK Trade Tariff](https://www.gov.uk/trade-tariff) and for keeping that content up to date. It is meant to provide a predictable and stable interface to Trade Tariff data.
+
+The API documentation is built from an [OpenAPI](https://github.com/OAI/OpenAPI-Specification) specification [file](/v2/openapi.yaml) for the Trade Tariff API. This file describes the API and provides example requests and responses.
+
+## API Version
+
+The most up-to-date version of this API is __version 2__ or `v2`.
+
+Documentation for __version 1__ (`v1`) is available at [https://api.trade-tariff.service.gov.uk/reference-v1.html](/reference-v1.html).
+
+## Quick start
+
+You can use GOV.UK Tariff API to lookup the data that is used on 
+[`https://www.gov.uk/trade-tariff`](https://www.gov.uk/trade-tariff).
+
+To get started:
+
+ 1. Using a tool such as [curl](https://curl.haxx.se/),
+    [Postman](https://www.getpostman.com/) or your web browser, make a GET
+    request to [`https://www.trade-tariff.service.gov.uk/api/v2/sections`](https://www.trade-tariff.service.gov.uk/api/v2/sections).
+ 2. You’ll receive a JSON response and the fields for this are
+    explained in the [reference documentation](reference.html).
+
+For example, using the curl command line utility tool:
+
+```shell
+curl https://www.trade-tariff.service.gov.uk/api/v2/sections
+```
+
+## Keep informed
+
+There is a [discussion group](https://forum.trade-tariff.service.gov.uk/c/api) 
+for the GOV.UK Trade Tariff API. We will use this channel to communicate any changes, 
+updates, and status of the API.
+
+## Authentication
+
+Usage of GOV.UK Trade Tariff API does not require authentication.
+
+## Caching
+
+The GOV.UK Trade Tariff is updated on a daily basis, however to reduce the number of API calls please consider caching 
+requests for 24 hours.
+
+## Security and compliance
+
+### Reporting vulnerabilities
+
+If you believe there is a security issue with GOV.UK Trade Tariff API, please
+[contact us immediately](#support).
+
+Please don’t disclose the suspected breach publicly until it has been fixed.
+
+### HTTPS
+
+GOV.UK Tariff API follows government HTTPS security guidelines. The
+Hypertext Transfer Protocol Secure (HTTPS), which involves the Transport Layer
+Security (TLS) protocol, is used by the platform to provide secure connections.
+
+### Security patches
+
+We upgrade the framework and library code in GOV.UK Trade Tariff API
+to the latest versions for security and feature enhancements.
+
+## Support
+
+If you experience any issues or have questions regarding GOV.UK Trade Tariff API
+please:
+
+- Use the [discussion group](https://forum.trade-tariff.service.gov.uk/c/api)
+- **If you are a government department:** You can raise a ticket with Bit Zesty [support@bitzesty.com](mailto:support@bitzesty.com?subject=Trade%20Tariff%20API)
+
+
+[HTTPS]: https://en.wikipedia.org/wiki/HTTPS
+[JSON]: https://en.wikipedia.org/wiki/JSON

@@ -1,0 +1,25 @@
+# Host to use for canonical URL generation (without trailing slash)
+host: https://www.trade-tariff.service.gov.uk
+
+# Header-related options
+show_govuk_logo: true
+service_name: Trade Tariff API
+service_link: /
+# phase: Beta
+
+# Links to show on right-hand-side of header
+header_links:
+  About: /
+  Getting Started: /getting-started.html
+  API Docs: /reference.html
+
+# Tracking ID from Google Analytics (e.g. UA-XXXX-Y)
+ga_tracking_id: UA-97208357-3
+
+# Table of contents depth – how many levels to include in the table of contents.
+# If your ToC is too long, reduce this number and we'll only show higher-level
+# headings.
+max_toc_heading_level: 6
+
+# Prevent robots from indexing (e.g. whilst in development)
+prevent_indexing: false
