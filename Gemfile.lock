@@ -132,6 +132,7 @@ GEM
     mini_portile2 (2.4.0)
     minitest (5.14.2)
     multi_json (1.15.0)
+    nio4r (2.5.4)
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
     openapi3_parser (0.5.2)
@@ -147,6 +148,8 @@ GEM
       coderay (~> 1.1)
       method_source (~> 1.0)
     public_suffix (4.0.6)
+    puma (5.0.4)
+      nio4r (~> 2.0)
     rack (2.2.3)
     rack-livereload (0.3.17)
       rack
@@ -181,6 +184,7 @@ PLATFORMS
 DEPENDENCIES
   govuk_tech_docs
   middleman-gh-pages (~> 0.3.1)
+  puma
 
 RUBY VERSION
    ruby 2.7.2p137
