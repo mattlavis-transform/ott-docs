@@ -1,9 +1,9 @@
 <details>
 
 <summary>Sample JSON</summary>
+<code class='sample'>
 
-```json
 {{=JSON.stringify(data.schema,null,2)}}
-```
 
+</code>
 </details>

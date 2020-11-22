@@ -5,6 +5,9 @@ info:
   description: |
     The Trade Tariff Public API provides a simple and consistent way to request
     [UK Trade Tariff](https://gov.uk/trade-tariff) content as structured data in a predictable format.
+    
+    From January 1st 2021, the API will also provide data on the EU Tariff as applies to certain
+    trades with Northern Ireland (known as the XI Tariff).
 
     This API accepts HTTP requests and responds with
     [JSON](https://en.wikipedia.org/wiki/JSON) data containing the same
@@ -14,6 +17,7 @@ info:
 
 servers:
   - url: https://www.trade-tariff.service.gov.uk/api/v2
+  - url: https://www.trade-tariff.service.gov.uk/api/v2/xi
   # - url: https://staging.trade-tariff.service.gov.uk/api/v2
   # - url: https://dev.trade-tariff.service.gov.uk/api/v2
 
@@ -41,7 +45,7 @@ paths:
               example:
                 $ref: '#/components/schemas/Sections/example'
         5XX:
-          description: Unexpected error.
+          description: Unexpected error
       x-code-samples:
         /api/v2/sections:
           lang: shell
@@ -50,7 +54,7 @@ paths:
 
   /sections/{position}:
     get:
-      summary: Retreives a section by its position
+      summary: Retrieves a section by its position
       description: |
         This resource represents _a single section_ in the Tariff.
 
@@ -84,7 +88,7 @@ paths:
         404:
           description: Section was not found.
         5XX:
-          description: Unexpected error.
+          description: Unexpected error
       x-code-samples:
         /api/v2/sections:
           lang: shell
@@ -93,7 +97,7 @@ paths:
 
   /sections/{section_id}/section_note:
     get:
-      summary: Retreives a section's notes
+      summary: Retrieves a section's notes
       description: |
         This resource represents the notes for a particular section.
 
@@ -124,7 +128,7 @@ paths:
         404:
           description: A section's notes were not found.
         5XX:
-          description: Unexpected error.
+          description: Unexpected error
       x-code-samples:
         /api/v2/sections:
           lang: shell
@@ -153,7 +157,7 @@ paths:
               example:
                 $ref: '#/components/schemas/Chapters/example'
         5XX:
-          description: Unexpected error.
+          description: Unexpected error
       x-code-samples:
         /api/v2/chapters:
           lang: shell
@@ -165,7 +169,7 @@ paths:
       summary: Retrieves a chapter
       description: >
         Retrieves a chapter, given the first two (2) digits of its `goods_nomenclature_item_id`
-        <p>This should be a zero-padded string of two digits.</p>
+        <p>This should be a zero-padded string of two digits. Please note that there is no chapter 77.</p>
       tags:
       - Chapters
       produces:
@@ -190,7 +194,7 @@ paths:
         404:
           description: Chapter was not found.
         5XX:
-          description: Unexpected error.
+          description: Unexpected error
       x-code-samples:
         /api/v2/chapters:
           lang: shell
@@ -199,7 +203,7 @@ paths:
 
   /chapters/{chapter_id}/chapter_note:
     get:
-      summary: Retreives a chapter's notes
+      summary: Retrieves a chapter's notes
       description: >
         This resource represents the note for a particular chapter.
         For this resource, `chapter_id` is used to uniquely identify a chapter and request its note from the API. `chapter_id` is the first two (2) digits of the chapter's `goods_nomenclature_item_id`
@@ -230,7 +234,7 @@ paths:
         404:
           description: A chapter's notes were not found.
         5XX:
-          description: Unexpected error.
+          description: Unexpected error
       x-code-samples:
         /api/v2/chapters/{chapter_id}/chapter_note:
           lang: shell
@@ -239,7 +243,7 @@ paths:
 
   /chapters/{chapter_id}/changes:
     get:
-      summary: Retreives a chapter's changes
+      summary: Retrieves a chapter's changes
       description: >
         This resource represents the changes for a particular chapter.
         For this resource, `chapter_id` is used to uniquely identify a chapter and request its note from the API. `chapter_id` is the first two (2) digits of the chapter's `goods_nomenclature_item_id`
@@ -268,7 +272,7 @@ paths:
         404:
           description: A chapter's changes were not found.
         5XX:
-          description: Unexpected error.
+          description: Unexpected error
       x-code-samples:
         /api/v2/chapters/{chapter_id}/changes:
           lang: shell
@@ -310,7 +314,7 @@ paths:
         404:
           description: Heading was not found.
         5XX:
-          description: Unexpected error.
+          description: Unexpected error
       x-code-samples:
         /api/v2/chapters:
           lang: shell
@@ -319,7 +323,7 @@ paths:
 
   /headings/{heading_id}/changes:
     get:
-      summary: Retreives a heading's changes
+      summary: Retrieves a heading's changes
       description: >
         This resource represents the changes for a particular heading.
         For this resource, `heading_id` is used to uniquely identify a heading and request its changes from the API. `heading_id` is the first four (4) digits of the heading's `goods_nomenclature_item_id`
@@ -350,7 +354,7 @@ paths:
         404:
           description: A heading's changes were not found.
         5XX:
-          description: Unexpected error.
+          description: Unexpected error
       x-code-samples:
         /api/v2/chapters:
           lang: shell
@@ -392,7 +396,7 @@ paths:
         404:
           description: Commodity was not found.
         5XX:
-          description: Unexpected error.
+          description: Unexpected error
       x-code-samples:
         /api/v2/commodities/{id}:
           lang: shell
@@ -401,7 +405,7 @@ paths:
 
   /commodities/{id}/changes:
     get:
-      summary: Retreives a commodity's changes
+      summary: Retrieves a commodity's changes
       description: >
         This resource represents a single commodity.
         For this resource, `id` is a `goods_nomenclature_item_id` and it is used to uniquely identify a commodity and request it from the API.
@@ -433,7 +437,7 @@ paths:
         404:
           description: A commodity's changes were not found.
         5XX:
-          description: Unexpected error.
+          description: Unexpected error
       x-code-samples:
         /api/v2/commodities/{id}/changes:
           lang: shell
@@ -460,7 +464,7 @@ paths:
               example:
                 $ref: '#/components/schemas/MonetaryExchangeRates/example'
         5XX:
-          description: Unexpected error.
+          description: Unexpected error
       x-code-samples:
         /api/v2/monetary_exchange_rates:
           lang: shell
@@ -546,7 +550,7 @@ paths:
               example:
                 $ref: '#/components/schemas/QuotaSearch/example'
         5XX:
-          description: Unexpected error.
+          description: Unexpected error
       x-code-samples:
         /api/v2/quotas/search:
           lang: shell
@@ -603,7 +607,7 @@ paths:
               example:
                 $ref: '#/components/schemas/AdditionalCodeSearch/example'
         5XX:
-          description: Unexpected error.
+          description: Unexpected error
       x-code-samples:
         /api/v2/additional_codes/search:
           lang: shell
@@ -630,7 +634,7 @@ paths:
               example:
                 $ref: '#/components/schemas/AdditionalCodeTypes/example'
         5XX:
-          description: Unexpected error.
+          description: Unexpected error
       x-code-samples:
         /api/v2/additional_code_types:
           lang: shell
@@ -687,7 +691,7 @@ paths:
               example:
                 $ref: '#/components/schemas/CertificateSearch/example'
         5XX:
-          description: Unexpected error.
+          description: Unexpected error
       x-code-samples:
         /api/v2/certificates/search:
           lang: shell
@@ -713,7 +717,7 @@ paths:
               example:
                 $ref: '#/components/schemas/CertificateTypes/example'
         5XX:
-          description: Unexpected error.
+          description: Unexpected error
       x-code-samples:
         /api/v2/certificate_types:
           lang: shell
@@ -770,7 +774,7 @@ paths:
               example:
                 $ref: '#/components/schemas/FootnoteSearch/example'
         5XX:
-          description: Unexpected error.
+          description: Unexpected error
       x-code-samples:
         /api/v2/footnotes/search:
           lang: shell
@@ -796,7 +800,7 @@ paths:
               example:
                 $ref: '#/components/schemas/FootnoteTypes/example'
         5XX:
-          description: Unexpected error.
+          description: Unexpected error
       x-code-samples:
         /api/v2/footnote_types:
           lang: shell
@@ -806,7 +810,7 @@ paths:
 ### Chemicals
   /chemicals/{cas}:
     get:
-      summary: Retreives a chemical by its CAS number.
+      summary: Retrieves a chemical by its CAS number.
       description: |
         This resource represents _a single chemical_ in the Tariff.
 
@@ -840,7 +844,7 @@ paths:
         404:
           description: Chemical was not found.
         5XX:
-          description: Unexpected error.
+          description: Unexpected error
       x-code-samples:
         /api/v2/sections:
           lang: shell
@@ -889,7 +893,7 @@ paths:
               example:
                 $ref: '#/components/schemas/ChemicalSearch/example'
         5XX:
-          description: Unexpected error.
+          description: Unexpected error
       x-code-samples:
         /api/v2/chemicals/search:
           lang: shell
@@ -966,7 +970,7 @@ paths:
               example:
                 $ref: '#/components/schemas/GoodsNomenclatures/example'
         5XX:
-          description: Unexpected error.
+          description: Unexpected error
       x-code-samples:
         /api/v2/goods_nomenclatures/section/1:
           lang: shell
@@ -1041,7 +1045,7 @@ paths:
               example:
                 $ref: '#/components/schemas/GoodsNomenclatures/example'
         5XX:
-          description: Unexpected error.
+          description: Unexpected error
       x-code-samples:
         /api/v2/goods_nomenclatures/chapter/01:
           lang: shell
@@ -1118,7 +1122,7 @@ paths:
               example:
                 $ref: '#/components/schemas/GoodsNomenclatures/example2'
         5XX:
-          description: Unexpected error.
+          description: Unexpected error
       x-code-samples:
         /api/v2/goods_nomenclatures/heading/0101:
           lang: shell
@@ -1152,7 +1156,7 @@ paths:
               example:
                 $ref: '#/components/schemas/SearchReferences/example'
         5XX:
-          description: Unexpected error.
+          description: Unexpected error
       x-code-samples:
         /api/v2/search_references.json?query[letter]=c:
           lang: shell
@@ -1179,7 +1183,7 @@ paths:
               example:
                 $ref: '#/components/schemas/GeographicalAreas/example'
         5XX:
-          description: Unexpected error.
+          description: Unexpected error
       x-code-samples:
         /api/v2/geographical_areas:
           lang: shell
@@ -1188,16 +1192,16 @@ paths:
 
   /geographical_areas/countries:
     get:
-      summary: Retrieves a list of contries
+      summary: Retrieves a list of countries
       description: |
-        Retrieves a list of contries
+        Retrieves a list of countries
       tags:
       - GeographicalAreas
       produces:
       - application/json
       responses:
         200:
-          description: Contries were found
+          description: countries were found
           content:
             application/json:
               schema:
@@ -1205,7 +1209,7 @@ paths:
               example:
                 $ref: '#/components/schemas/GeographicalAreas/example'
         5XX:
-          description: Unexpected error.
+          description: Unexpected error
       x-code-samples:
         /api/v2/geographical_areas:
           lang: shell
@@ -1223,7 +1227,7 @@ components:
       properties:
         data:id:
           type: string
-          description: The `id` of the section. It may be used to uniquely identify a section and request it's section_note from the API.
+          description: The `id` of the section. It may be used to uniquely identify a section and request its section_note from the API.
         data:type:
           type: string
           description: the type of object this is, e.g. `section`
@@ -1262,7 +1266,7 @@ components:
       properties:
         data:id:
           type: string
-          description: The `id` of the section. It may be used to uniquely identify a section and request it's section_note from the API.
+          description: The `id` of the section. It may be used to uniquely identify a section and request its section_note from the API.
         data:type:
           type: string
           description: The type of object this is, e.g. `section`
@@ -1271,7 +1275,7 @@ components:
           $ref: '#/components/schemas/ReferencedSection'
         data:relationships:
           type: object
-          description: Objects and collections that are related to this section, e.g., a [referenced chapter](/reference.html#referencedchapter "see referenced chapter object")
+          description: Objects and collections that are related to this section, e.g. a [referenced chapter](/reference.html#referencedchapter "see referenced chapter object")
         included:
           type: array
           description: A collection of chapters that are included in the section [referenced chapter objects](/reference.html#referencedchapter "see referenced chapter object")
@@ -1350,7 +1354,7 @@ components:
           description: The `id` of the section_note.
         section_id:
           type: integer
-          description: The `section_id` of the sction_note. It may be used to uniquely identify a section_note and request it from the API.
+          description: The `section_id` of the section_note. It may be used to uniquely identify a section_note and request it from the API.
         content:
           type: string
           description: The `content` of the section_note. Not all sections have a note.
@@ -1413,7 +1417,7 @@ components:
       properties:
         data:id:
           type: string
-          description: The `id` of the chapter. It may be used to uniquely identify a chapter and request it's chapter_note from the API.
+          description: The `id` of the chapter. It may be used to uniquely identify a chapter and request its chapter_note from the API.
         data:type:
           type: string
           description: the type of object this is, e.g. `chapter`
@@ -1524,7 +1528,7 @@ components:
       properties:
         data:id:
           type: string
-          description: The `id` of the chapter. It may be used to uniquely identify a chapter and request it's chapter_note from the API.
+          description: The `id` of the chapter. It may be used to uniquely identify a chapter and request its chapter_note from the API.
         data:type:
           type: string
           description: the type of object this is, e.g. `chapter`
@@ -1587,7 +1591,7 @@ components:
       properties:
         data:id:
           type: string
-          description: The `id` of the heading. It may be used to uniquely identify a heading and request it's heading_note from the API.
+          description: The `id` of the heading. It may be used to uniquely identify a heading and request its heading_note from the API.
         data:type:
           type: string
           description: the type of object this is, e.g. `heading`
@@ -2541,7 +2545,7 @@ components:
             cas: 22199-08-2
             name: 4-amino-N-(pyrimidin-2(1H)-ylidene-κN 1)benzenesulfonamidato-κOsilver
           relationships:
-            goods_nomeclatures:
+            goods_nomenclatures:
               data:
               - id: "36102"
                 type: "goods_nomenclature"
@@ -2558,7 +2562,7 @@ components:
             name: 4-amino-N-(pyrimidin-2(1H)-ylidene-κN 1)benzenesulfonamidato-κOsilver
             chemical_id: 1
         - id: "36102"
-          type: goods_nomeclature
+          type: goods_nomenclature
           attributes:
             goods_nomenclature_item_id: "2843290000"
             goods_nomenclature_sid: 36102
@@ -2865,7 +2869,7 @@ components:
       properties:
         id:
           type: integer
-          description: The `id` of the section. It may be used to uniquely identify a section and request it's section_note from the API.
+          description: The `id` of the section. It may be used to uniquely identify a section and request its section_note from the API.
         title:
           type: string
           description: The `title` of the section.
@@ -3379,16 +3383,16 @@ components:
       properties:
         child_monetary_unit_code:
           type: string
-          description: The `child_monetary_unit_code` of the monetary exchage rate. E.g., 'GBP'
+          description: The `child_monetary_unit_code` of the monetary exchange rate. e.g. 'GBP'
         exchange_rate:
           type: string
           description: The `exchange_rate`.
         operation_date:
           type: string
-          description: The `operation_date` of the monetary exchage rate.
+          description: The `operation_date` of the monetary exchange rate.
         validity_start_date:
           type: string
-          description: The `validity_start_date` of the monetary exchage rate.
+          description: The `validity_start_date` of the monetary exchange rate.
       example:
         child_monetary_unit_code: "GBP"
         exchange_rate: "0.8349"

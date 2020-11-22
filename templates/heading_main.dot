@@ -10,6 +10,8 @@ All requests to this API should be prefixed with the following URL:
 **{{=data.servers[0].url}}**
 {{??}}
 ## Base URLs
+The base URLs below may be used for accessing the UK and the EU Tariff for Northern Ireland (XI) respectively. Further examples in this 
+document only show the UK version of the API.
 
 {{~data.servers :s}}
 * <a href="{{=s.url}}">{{=s.url}}</a>
